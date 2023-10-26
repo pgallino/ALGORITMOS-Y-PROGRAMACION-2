@@ -1,0 +1,16 @@
+parcial 4 ej3 recu
+
+a) verdadero: Es posible que se presente mas de un árbol de tendido mínimo para un grafo. Puede suceder cuando hay 
+aristas del mismo peso.
+
+Un ejemplo básico es un grafo de tres vértices de forma triangular, unidos por aristas de peso 1. Es fácil de ver que se puede
+armar mas de un árbol con el mismo peso al eliminar cada una de las 3 aristas.
+
+b) Falso: Justamente se busca evitar ciclos, simplemente antes de cerrarse el ciclo no se visita a ese vertice y se sigue con otro.
+es probable que esas aristas negativas sean las elegidas para formar el árbol, pero no habría problema con ellas. El problema
+esta en problemas de camino mínimo.
+
+c) Verdadero: Prim, al comenzar desde un vertice aleatorio e ir moviendose de adyacente en adyacente es imposible que llegue a los vertices de las otras componentes. Para calcular el bosque de tendido mínimo, habria que modificarlo para arrancar en cada componente conexa.
+Habria que aplicar Prim en cada componente por separado.
+
+En cambio Kruskal si puede.

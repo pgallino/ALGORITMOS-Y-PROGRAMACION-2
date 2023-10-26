@@ -1,0 +1,64 @@
+Ejercicio 3
+
+Realizar el seguimiento del Algoritmo de Prim (empezando por el vértice F) para el siguiente grafo:
+|   | A | B | C | D | E | F |
+|---|---|---|---|---|---|---|
+| A | 0 | 5 | 2 | 3 | 0 | 3 |
+| B | 5 | 0 | 1 | 0 | 0 | 0 |
+| C | 2 | 1 | 0 | 4 | 0 | 2 |
+| D | 3 | 0 | 4 | 0 | 0 | 0 |
+| E | 0 | 0 | 0 | 0 | 0 | 9 |
+| F | 3 | 0 | 2 | 0 | 9 | 0 |
+
+Comienzo en F, lo visito: VISITADOS = (F)
+
+-encolo todas las aristas de f en un heap de mínimos
+
+heap minimos [(f,a,3),(f,c,2),(f,e,9)] (no los pongo en orden, lo pienso como una bolsa de la que saco aristas)
+
+-desencolo (f,c,2) y visito c: VISITADOS = (F,C)  #primera arista del árbol de tendido mínimo
+
+-encolo todas las aristas de c en el heap que no contengan vertices ya visitados (para ahorrar pasos obvios y dar claridad al seguimiento)
+
+heap mínimos [(f,a,3),(f,e,9),(c,a,2),(c,b,1),(c,d,4)]
+
+-desencolo (c,b,1) y visito b: VISITADOS = (F,C,B) #segunda arista del árbol de tendido mínimo
+
+-encolo todas las aristas de b en el heap que no contengan vertices ya visitados
+
+heap mínimos [(f,a,3),(f,e,9),(c,a,2),(c,d,4),(b,a,5)]
+
+-desencolo (c,a,2) y visito a: VISITADOS = (F,C,B,A) #tercera arista del árbol de tendido mínimo
+
+-encolo todas las aristas de a en el heap que no contengan vertices ya visitados
+
+heap mínimos [(f,a,3),(f,e,9),(c,d,4),(b,a,5),(a,d,3)]
+
+-desencolo (f,a,3) y como ya esta visitado a continuo
+
+-desencolo (a,d,3) y visito d: VISITADOS = (F,C,B,A,D) #cuarta arista del árbol de tendido mínimo
+
+-encolo todas las aristas de d en el heap que no contengan vertices ya visitados
+
+heap mínimos [(f,e,9),(c,d,4),(b,a,5)] (no encolo nada porque ya estan visitados todos sus adyacentes)
+
+-desencolo (c,d,4) y como ya esta visitado d continuo
+
+-desencolo (b,a,5) y como ya esta visitado a continuo
+
+-desencolo (f,e,9) y visito e: VISITADOS = (F,C,B,A,D) #quinta arista del árbol de tendido mínimo
+
+-encolo todas las aristas de e en el heap que no contengan vertices ya visitados
+
+heap mínimos [] (no encolo nada porque ya estan visitados todos sus adyacentes)
+
+Aquí termina el algoritmo y queda como resultado el arbol cuyas aristas son:
+
+(f,c,2) (c,b,1) (c,a,2) (a,d,3) (f,e,9)
+
+se puede ver que son 6 vértices y obtuve 5 aristas, asi que consiguió unir todos. Sumando los pesos obtengo que el árbol
+en su totalidad pesa 17.
+
+La complejidad de este algoritmo es o(ElogV)
+
+

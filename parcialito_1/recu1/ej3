@@ -1,0 +1,16 @@
+a) Falso, en Radix Sort se utiliza un ordenamiento interno (idealmente lineal) que TIENE QUE SER ESTABLE. La afirmación sería verdadera si se tratase de Bucket Sort, que sí depende del ordenamiento interno que se elija,
+ya que este puede ser no estable y como resultado Bucket sort tampoco lo sería.
+Si no fuese estable, al ordenar cifras más significativas de igual peso (por ej, centenas), nada me garantiza que no me queden en desorden las decenas y las unidades. Podria quedarme 104-138-129-203-777-732.
+La estabilidad permite que los ordenamientos de las cifras anteriores se respeten y el resultado final sea el correcto.}
+Solo quedaría ordenada la ultima cifra a ordenar.
+
+
+b)Falso, el algoritmo funciona de igual forma. Al unir las sublistas que se van consiguiendo, no importa si estas ya
+se encuentran ordenadas. Recorrerlas es obligatorio ya que no se puede saber de antemano si estan en orden. Por lo tanto, el recorrido es el mismo, solo que en vez de intercalar ordenadamente las sublistas, se insertan tal como estan. 
+Su costo seguirá siendo O(N log2 N). En otros algoritmos como Insercion y Quicksort sí depende su complejidad
+de lo ordenado que se encuentre el arreglo.
+
+c)Verdadero, si partimos de la base de que Radix sort es similar a implementar Counting sort por cada "cifra" es imposible que la complejidad de Radix sort sea igual o menor que la de Counting Sort. 
+La complejidad de Counting sort es O(n+k) siendo k el rango n la cantidad de elementos.
+La complejidad de Radix sort es O(d*(n+k)) siendo k y n lo mismo que en Counting y d la cantidad de cifras.
+Si la cantidad de cifras fuese 1, la complejidad es la misma que Counting, pero ya no seria Radix, seria Counting.
